@@ -13,15 +13,20 @@ public class Challenge {
     // -------------- FOUNDATION --------------
 
     /***
-     * Get the first and last items in an given string array.
+     * Get the first and last items in a given string array.
      *
-     * If a the given array's length is 0 return an empty string array.
+     * If the given array's length is 0 return an empty string array.
      *
      * @param namesArr e.g. ["Ollie", "Sam", "Bex"]
      * @return a new array containing the first and last items in the given array e.g. ["Ollie", "Bex"]
      */
     public String[] getFirstAndLast(String[] namesArr) {
-        return new String[0];
+        if (namesArr.length == 0){
+            return new String[0];
+        }else {
+            return new String[] {namesArr[0], namesArr[namesArr.length-1]};
+        }
+
     }
 
     /***

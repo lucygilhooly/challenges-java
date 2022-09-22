@@ -20,7 +20,7 @@ public class Challenge {
      * @return returns a string which is the concatenation of the 2 parameters
      */
     public String getFullName(String firstName, String lastName) {
-        return "";
+        return firstName + " " + lastName;
     }
 
     /***
@@ -31,7 +31,7 @@ public class Challenge {
      * @return returns a boolean based on whether the number is between 0 and the range limit
      */
     public boolean isWithinRange(int number, int rangeLimit) {
-        return false;
+        return number >= 0 && number <= rangeLimit;
     }
 
 
@@ -50,8 +50,29 @@ public class Challenge {
      * @return returns the result of the equation
      */
     public int stringCalculator(int numberOne, int numberTwo, String operator) {
+        if (numberOne < 1 || numberTwo < 1){
         return -1;
-    }
+        }
+        int result = 0;
+
+        switch(operator) {
+            case "*":
+                result = numberOne * numberTwo;
+                break;
+            case "/":
+                result = numberOne / numberTwo;
+                break;
+            case "+":
+                result = numberOne + numberTwo;
+                break;
+            case "-":
+                result = numberOne = numberTwo;
+                break;
+            default:
+                result = -1;
+        }
+        return result;
+        }
 
 
     // -------------- INTERMEDIATE --------------
@@ -70,7 +91,14 @@ public class Challenge {
      * @return If we need to wake up or not based on the conditions above.
      */
     public boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        return false;
+        if (barking && hourOfDay < 8){
+            return true;
+        }else if (barking && hourOfDay > 22){
+            return true;
+        } else{
+            return false;
+        }
+
     }
 
     /***
@@ -82,9 +110,15 @@ public class Challenge {
      * @return return the middle character or characters... for example, passing in "Sam" would return "The middle
      * character in the string: a"
      */
-    public String getMiddleCharacter(String word) {
-        return "";
-    }
+//    public String getMiddleCharacter(String word) {
+//
+//        int wordLength;
+//        int middle;
+//
+//        if (word.length() / 2)
+//
+//         return "The middle character in the string:" + middle;
+//    }
 
 
     /***
@@ -99,8 +133,14 @@ public class Challenge {
      * @return returns a string in the format above if the input is valid, or "Invalid value"
      */
     public String printMegaBytesAndKiloBytes(int kiloBytes) {
-        return "";
-    }
+        if (kiloBytes < 0 ){
+            return "Invalid Value";
+        } else {
+            int megaBytes = kiloBytes / 1024;
+            int remainder = kiloBytes % 1024;
+
+            return kiloBytes + " KB = " + megaBytes + " MB and " + remainder + " KB";
+        }}
 
     // -------------- ADVANCED --------------
 

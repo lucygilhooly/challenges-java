@@ -21,8 +21,7 @@ public class Challenge {
      * @return returns the larger of the 2 numbers passed as paramters
      */
     public int findLargestNumber(int num1, int num2) {
-        // Write your solution here
-        return -1;
+       return Math.max(num1, num2);
     }
 
     /***
@@ -33,7 +32,11 @@ public class Challenge {
      * @return returns the larger of the 2 strings or "These two are the same length!" if they are of equal length
      */
     public String findLongestString(String string1, String string2) {
-        return "";
+        if (string1.length() > string2.length()) {
+            return string1;
+        } else if (string1.length() < string2.length()) {
+            return  string2;
+        } else return "These two are the same length!";
     }
 
     /**
@@ -46,7 +49,7 @@ public class Challenge {
      */
     public double getDiscount(double price, double discount) {
         // Extra Challenge: How would this change if price & discount were int types?
-        return -1;
+        return price - price * discount/100;
     }
 
     // -------------- INTERMEDIATE --------------
@@ -61,7 +64,11 @@ public class Challenge {
      * @return a boolean to specify whether the 2 params match to 4 decimal places.
      */
     public boolean compareTwoNumbers(double num1, double num2) {
-        return true;
+        if (Math.round(num1 * 10000) == Math.round(num2 * 10000)){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /***
@@ -78,7 +85,28 @@ public class Challenge {
      * day range! The number needs to be from 0-6" if param passed is outside of the range
      */
     public String getDayName(int day) {
-        return "";
+
+        String dayName = " ";
+
+        switch (day) {
+            case 0 : dayName = "Sunday";
+                break;
+            case 1 : dayName = "Monday";
+                break;
+            case 2 : dayName = "Tuesday";
+                break;
+            case 3 : dayName = "Wednesday";
+                break;
+            case 4 : dayName = "Thursday";
+                break;
+            case 5 : dayName = "Friday";
+                break;
+            case 6 : dayName = "Saturday";
+                break;
+            default: dayName = "Not a valid day range! The number needs to be from 0-6";
+
+        }
+        return dayName;
     }
 
     /***
@@ -90,7 +118,11 @@ public class Challenge {
      * @return a boolean the result of the length check.
      */
     public boolean isEvenWord(String word) {
-        return true;
+       if (!word.equals("") && word.length() % 2 == 0){
+           return true;
+       }else {
+           return false;
+       }
     }
 
     // -------------- ADVANCED --------------
@@ -107,6 +139,11 @@ public class Challenge {
      * @return returns true if it is a leap year, false if not
      */
     public boolean leapYearChecker(int year) {
-        return false;
+
+        boolean x = (year % 4) == 0;
+        boolean y = (year % 100) != 0;
+        boolean z = ((year % 100) == 0) && ((year % 400) == 0);
+
+        return x && (y || z);
     }
 }
